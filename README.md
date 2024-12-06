@@ -8,6 +8,8 @@ A modern, responsive dashboard template built with Next.js 14, featuring:
 - Tailwind CSS for styling
 - React Icons integration
 
+Visit the [live demo](https://dashboard-template-alpha.vercel.app/), hosted on [Vercel](https://vercel.com/), to see the template in action.
+
 ## Prerequisites
 
 Before you begin, ensure you have installed:
