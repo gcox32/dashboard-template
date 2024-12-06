@@ -12,7 +12,7 @@ export default function Footer() {
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>
-        <p className="copyright">&copy; {new Date().getFullYear()} unspammable</p>
+        <p className="copyright">&copy; {new Date().getFullYear()} Our Website</p>
       </div>
     </footer>
   );
