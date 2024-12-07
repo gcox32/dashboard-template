@@ -2,46 +2,14 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { 
     FaChevronLeft, 
-    FaChevronRight, 
-    FaTachometerAlt, 
-    FaChartLine, 
-    FaHistory, 
-    FaUsers, 
-    FaMapMarkerAlt, 
-    FaBlog, 
-    FaCalculator,
+    FaChevronRight,
     FaTimes
 } from 'react-icons/fa';
 import Link from 'next/link';
 import NavLogo from '@/src/components/layout/NavLogo';
 import { useSidebar } from '@/src/contexts/SidebarContext';
 import { useSearch } from '@/src/contexts/SearchContext';
-import { NavGroup } from './types';
-
-const navGroups: NavGroup[] = [
-    {
-        title: 'Dashboard',
-        items: [
-            { icon: <FaTachometerAlt />, label: 'Dashboard', href: '/' },
-            { icon: <FaChartLine />, label: 'KPIs', href: '/kpis' },
-            { icon: <FaHistory />, label: 'Logs', href: '/logs' },
-        ]
-    },
-    {
-        title: 'Management',
-        items: [
-            { icon: <FaUsers />, label: 'Users', href: '/users' },
-            { icon: <FaMapMarkerAlt />, label: 'Tracking', href: '/tracking' },
-            { icon: <FaBlog />, label: 'Blog', href: '/blog' },
-        ]
-    },
-    {
-        title: 'Tools',
-        items: [
-            { icon: <FaCalculator />, label: 'Calculator', href: '/calculator' },
-        ]
-    }
-];
+import { navGroups } from './config';
 
 export default function PersistentSidebar() {
     const { isExpanded, setIsExpanded, isMobileView, isMobileOpen, setMobileOpen } = useSidebar();

@@ -10,18 +10,18 @@ export const staticRoutes: SearchResult[] = [
     label: 'About',
     href: '/about',
     icon: <FaInfoCircle />,
-    category: 'Pages'
+    category: '/'
   },
   {
     label: 'Contact',
     href: '/contact',
     icon: <FaEnvelope />,
-    category: 'Pages'
+    category: '/'
   },
   {
     label: 'Profile',
-    href: '/profile',
+    href: '/user/profile',
     icon: <FaUserCircle />,
-    category: 'Pages'
+    category: 'User'
   }
 ]; 

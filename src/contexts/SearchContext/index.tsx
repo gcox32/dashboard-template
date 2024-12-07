@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { NavGroup } from '@/src/components/layout/PersistentSidebar/types';
-import { staticRoutes } from '@/src/config/routes';
+import { staticRoutes } from './config';
 
 interface SearchContextType {
   searchQuery: string;
