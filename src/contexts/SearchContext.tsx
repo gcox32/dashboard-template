@@ -6,6 +6,8 @@ interface SearchContextType {
   isSearchOpen: boolean;
   setIsSearchOpen: (isOpen: boolean) => void;
   searchResults: SearchResult[];
+  selectedResultIndex: number;
+  setSelectedResultIndex: (index: number) => void;
 }
 
 export interface SearchResult {
@@ -21,6 +23,7 @@ export function SearchProvider({ children }: { children: React.ReactNode }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
 
   return (
     <SearchContext.Provider value={{ 
@@ -28,7 +31,9 @@ export function SearchProvider({ children }: { children: React.ReactNode }) {
       setSearchQuery, 
       isSearchOpen, 
       setIsSearchOpen,
-      searchResults 
+      searchResults,
+      selectedResultIndex,
+      setSelectedResultIndex
     }}>
       {children}
     </SearchContext.Provider>

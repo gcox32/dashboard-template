@@ -11,7 +11,12 @@ import PersistentSidebar from "@/src/components/layout/PersistentSidebar";
 import { useSidebar } from "@/src/contexts/SidebarContext";
 import SearchBar from "@/src/components/layout/SearchBar";
 
-export default function Navigation(user: any) {
+export default function Navigation() {
+
+    const user = {
+        name: 'Demo Account',
+        backgroundImage: 'https://ui-avatars.com/api/?name=Demo+Account&background=random&color=fff&size=100.png'
+      };
 
     const router = useRouter();
     const [pageSettingsSidebarOpen, setPageSettingsSidebarOpen] = useState(false);

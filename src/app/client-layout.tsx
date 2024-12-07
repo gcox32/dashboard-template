@@ -19,17 +19,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const user = {
-  name: 'Demo Account',
-  backgroundImage: 'https://ui-avatars.com/api/?name=Demo+Account&background=random&color=fff&size=100.png'
-};
-
 function MainContent({ children }: { children: React.ReactNode }) {
   const { isExpanded } = useSidebar();
 
   return (
     <div className={`app-container ${isExpanded ? 'sidebar-expanded' : ''}`}>
-      <Navigation user={user} />
+      <Navigation />
       <main className="main-content">
         {children}
       </main>
