@@ -12,7 +12,7 @@ import {
     FaCalculator
 } from 'react-icons/fa';
 import Link from 'next/link';
-import Logo from '@/src/components/layout/Logo';
+import NavLogo from '@/src/components/layout/NavLogo';
 import { useSidebar } from '@/src/contexts/SidebarContext';
 import { NavGroup } from './types';
 
@@ -59,11 +59,7 @@ export default function PersistentSidebar() {
             >
                 {isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
             </button>
-            <div className="nav-logo">
-                <Link href="/">
-                    <Logo width={50} height={50} />
-                </Link>
-            </div>
+            <NavLogo />
             <nav className="persistent-nav">
                 {navGroups.map((group, groupIndex) => (
                     <div key={groupIndex} className="nav-group">
