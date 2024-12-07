@@ -9,7 +9,8 @@ import {
     FaUsers, 
     FaMapMarkerAlt, 
     FaBlog, 
-    FaCalculator
+    FaCalculator,
+    FaTimes
 } from 'react-icons/fa';
 import Link from 'next/link';
 import NavLogo from '@/src/components/layout/NavLogo';
@@ -42,28 +43,25 @@ const navGroups: NavGroup[] = [
 ];
 
 export default function PersistentSidebar() {
-    const { isExpanded, setIsExpanded } = useSidebar();
-    // const { user } = useAuthenticator((context) => [context.user]); 
+    const { isExpanded, setIsExpanded, isMobileView, isMobileOpen, setMobileOpen } = useSidebar();
     const pathname = usePathname();
 
-    // if (!user) {
-    //     return null;
-    // }
-
-    return (
-        <div className={`persistent-sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
-            <button
-                className="toggle-button"
-                onClick={() => setIsExpanded(!isExpanded)}
-                aria-label={isExpanded ? 'Collapse sidebar' : 'Expand sidebar'}
-            >
-                {isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
-            </button>
+    const sidebarContent = (
+        <>
+            {!isMobileView && (
+                <button
+                    className="toggle-button"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    aria-label={isExpanded ? 'Collapse sidebar' : 'Expand sidebar'}
+                >
+                    {isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
+                </button>
+            )}
             <NavLogo />
             <nav className="persistent-nav">
                 {navGroups.map((group, groupIndex) => (
                     <div key={groupIndex} className="nav-group">
-                        <h3 className={`nav-group-title ${isExpanded ? 'expanded' : ''}`}>
+                        <h3 className={`nav-group-title ${isExpanded || isMobileOpen ? 'expanded' : ''}`}>
                             {group.title}
                         </h3>
                         <ul>
@@ -74,7 +72,7 @@ export default function PersistentSidebar() {
                                         className={pathname === item.href ? 'active' : ''}
                                     >
                                         <span className="icon">{item.icon}</span>
-                                        {isExpanded && <span className="label">{item.label}</span>}
+                                        {(isExpanded || isMobileOpen) && <span className="label">{item.label}</span>}
                                     </Link>
                                 </li>
                             ))}
@@ -82,6 +80,32 @@ export default function PersistentSidebar() {
                     </div>
                 ))}
             </nav>
+        </>
+    );
+
+    if (isMobileView) {
+        return (
+            <>
+                <div 
+                    className={`sidebar-overlay ${isMobileOpen ? 'active' : ''}`}
+                    onClick={() => setMobileOpen(false)}
+                />
+                <div className={`mobile-sidebar ${isMobileOpen ? 'open' : ''}`}>
+                    <button 
+                        className="close-button"
+                        onClick={() => setMobileOpen(false)}
+                    >
+                        <FaTimes />
+                    </button>
+                    {sidebarContent}
+                </div>
+            </>
+        );
+    }
+
+    return (
+        <div className={`persistent-sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
+            {sidebarContent}
         </div>
     );
 } 

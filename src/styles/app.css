@@ -11,11 +11,17 @@
   }
   
   .app-container {
-    padding-left: 60px; /* Width of collapsed sidebar */
+    padding-left: 60px;
     transition: padding-left 0.3s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .app-container {
+        padding-left: 0;
+    }
   }
   
   .app-container.sidebar-expanded {

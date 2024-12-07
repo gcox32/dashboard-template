@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaCog } from "react-icons/fa";
+import { FaCog, FaBars } from "react-icons/fa";
 import Sidebar from "@/src/components/layout/Sidebar";
 import PageSettingsSidebar from "@/src/components/layout/PageSettingsSidebar";
 import UserSidebar from "@/src/components/layout/UserSidebar";
@@ -19,12 +19,21 @@ export default function Navigation() {
     const router = useRouter();
     const [pageSettingsSidebarOpen, setPageSettingsSidebarOpen] = useState(false);
     const [userSidebarOpen, setUserSidebarOpen] = useState(false);
-    const { isExpanded } = useSidebar();
+    const { isExpanded, setIsExpanded, isMobileView, setMobileOpen } = useSidebar();
 
     return (
         <>
             <PersistentSidebar />
             <nav className={`main-nav ${isExpanded ? 'sidebar-expanded' : ''}`}>
+                {isMobileView && (
+                    <button
+                        className="hamburger-button"
+                        onClick={() => setMobileOpen(true)}
+                        aria-label="Open menu"
+                    >
+                        <FaBars />
+                    </button>
+                )}
                 <div className="nav-controls">
                     <button
                         className="icon-button"

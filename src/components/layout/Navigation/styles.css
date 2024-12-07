@@ -115,13 +115,6 @@ nav {
       width: 60px !important;
     }
   
-    .nav-group-title {
-      display: none;
-    }
-  
-    .persistent-nav .label {
-      display: none;
-    }
   }
   
   .sidebar-overlay {
@@ -380,6 +373,7 @@ nav {
     transition: background-color 0.2s;
     white-space: nowrap;
     width: 100%;
+    height: 54px;
   }
   
   .persistent-nav li a:hover,
@@ -420,5 +414,46 @@ nav {
   
   .nav-group-title.expanded {
     color: var(--border-color);
+  }
+  
+  .hamburger-button {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: auto;
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger-button {
+        display: block;
+    }
+  
+    .persistent-sidebar {
+        display: none;
+    }
+  
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 300px;
+        background-color: var(--sidebar-bg);
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+  
+    .mobile-sidebar.open {
+        transform: translateX(0);
+    }
+  
+    .app-container {
+        padding-left: 0 !important;
+    }
   }
   
