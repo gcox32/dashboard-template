@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import "./styles.css";
 import PersistentSidebar from "@/src/components/layout/PersistentSidebar";
 import { useSidebar } from "@/src/contexts/SidebarContext";
+import SearchBar from "@/src/components/layout/SearchBar";
 
 export default function Navigation(user: any) {
 
@@ -30,6 +31,7 @@ export default function Navigation(user: any) {
                         <FaBars />
                     </button>
                 )}
+                <SearchBar />
                 <div className="nav-controls">
                     <button
                         className="icon-button"

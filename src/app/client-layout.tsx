@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/src/contexts/ThemeContext";
 import Navigation from "@/src/components/layout/Navigation";
 import Footer from "@/src/components/layout/Footer";
 import { SidebarProvider, useSidebar } from "@/src/contexts/SidebarContext";
+import { SearchProvider } from "@/src/contexts/SearchContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -47,9 +48,11 @@ export default function ClientLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <SidebarProvider>
-            <MainContent>
-              {children}
-            </MainContent>
+            <SearchProvider>
+              <MainContent>
+                {children}
+              </MainContent>
+            </SearchProvider>
           </SidebarProvider>
         </ThemeProvider>
       </body>
