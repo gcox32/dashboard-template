@@ -61,4 +61,63 @@
 
 .search-container:focus-within .search-shortcut {
   display: none;
+}
+
+/* Search Results Styles */
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  color: var(--nav-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-result:hover,
+.search-result.selected {
+  background-color: var(--hover-bg);
+}
+
+.result-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+}
+
+.result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.result-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.result-category {
+  font-size: 0.8rem;
+  opacity: 0.7;
 } 

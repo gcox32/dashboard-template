@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import LogoProps from "./types";
 import Link from "next/link";
+
 export default function NavLogo({ width = 50, height = 50 }: LogoProps) {
     return (
         <div className="nav-logo">
@@ -13,7 +14,7 @@ export default function NavLogo({ width = 50, height = 50 }: LogoProps) {
                     alt="Logo"
                     width={width}
                     height={height}
-                    priority
+                    loading="eager"
                 />
             </Link>
         </div>
