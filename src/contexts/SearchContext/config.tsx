@@ -2,7 +2,8 @@ import { SearchResult } from '@/src/contexts/SearchContext';
 import { 
     FaInfoCircle, 
     FaEnvelope, 
-    FaUserCircle 
+    FaUserCircle,
+    FaFileAlt
 } from 'react-icons/fa';
 
 export const staticRoutes: SearchResult[] = [
@@ -23,5 +24,17 @@ export const staticRoutes: SearchResult[] = [
     href: '/user/profile',
     icon: <FaUserCircle />,
     category: 'User'
+  },
+  {
+    label: 'Privacy Policy',
+    href: '/privacy-policy',
+    icon: <FaFileAlt />,
+    category: '/'
+  },
+  {
+    label: 'Terms of Service',
+    href: '/terms-of-service',
+    icon: <FaFileAlt />,
+    category: '/'
   }
 ]; 

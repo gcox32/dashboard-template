@@ -73,11 +73,7 @@ The application supports both light and dark modes, with:
 
 ## Future Enhancements
 
-### Search Functionality
-- Global search component in navigation bar
-- Search through navigation items and dashboard content
-- Real-time search suggestions
-- Search history tracking
+### ~~Search Functionality~~
 
 ### Breadcrumbs Navigation
 - Path-based navigation breadcrumbs
