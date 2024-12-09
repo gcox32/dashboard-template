@@ -3,7 +3,9 @@ import {
     FaInfoCircle, 
     FaEnvelope, 
     FaUserCircle,
-    FaFileAlt
+    FaFileAlt,
+    FaCog,
+    FaBell
 } from 'react-icons/fa';
 
 export const staticRoutes: SearchResult[] = [
@@ -23,6 +25,18 @@ export const staticRoutes: SearchResult[] = [
     label: 'Profile',
     href: '/user/profile',
     icon: <FaUserCircle />,
+    category: 'User'
+  },
+  {
+    label: 'Settings',
+    href: '/user/settings',
+    icon: <FaCog />,
+    category: 'User'
+  },
+  {
+    label: 'Notifications',
+    href: '/user/notifications',
+    icon: <FaBell />,
     category: 'User'
   },
   {
