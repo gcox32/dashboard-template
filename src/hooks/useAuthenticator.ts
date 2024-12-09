@@ -12,10 +12,13 @@ interface AuthState {
   isLoading: boolean;
 }
 
+export type AuthStatus = 'authenticated' | 'unauthenticated' | 'loading';
+
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  authStatus: AuthStatus;
   signOut: () => Promise<void>;
   signIn: (username: string, password: string) => Promise<void>;
 }
@@ -78,7 +81,8 @@ export function useAuthenticator(selector?: (context: AuthContextType) => any) {
   const context: AuthContextType = {
     ...authState,
     signOut,
-    signIn
+    signIn,
+    authStatus: authState.isLoading ? 'loading' : authState.isAuthenticated ? 'authenticated' : 'unauthenticated'
   };
 
   // If selector is provided, return only selected values
