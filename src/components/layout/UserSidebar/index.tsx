@@ -44,19 +44,19 @@ export default function UserSidebar({ user }: UserSidebarProps) {
           <nav>
             <ul className={styles.navList}>
               <li className={styles.navItem}>
-                <Link href="/profile" className={styles.navLink}>
+                <Link href="/user/profile" className={styles.navLink}>
                   <span className={styles.icon}><FaUser /></span>
                   Edit Profile
                 </Link>
               </li>
               <li className={styles.navItem}>
-                <Link href="/settings" className={styles.navLink}>
+                <Link href="/user/settings" className={styles.navLink}>
                   <span className={styles.icon}><FaCog /></span>
                   Account Settings
                 </Link>
               </li>
               <li className={styles.navItem}>
-                <Link href="/notifications" className={styles.navLink}>
+                <Link href="/user/notifications" className={styles.navLink}>
                   <span className={styles.icon}><FaBell /></span>
                   Notifications
                 </Link>

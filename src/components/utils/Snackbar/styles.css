@@ -13,7 +13,8 @@
     left: 30px;
     z-index: 9999;
     transition: 0.5s ease-in-out;
-  }
+    color: var(--snackbar-text);
+}
   
   .snackbar.show {
     visibility: visible;
@@ -21,11 +22,9 @@
   }
   
   .snackbar.success {
-    background-color: #35AAE0;
-    color: #FFFFFF;
+    background-color: var(--snackbar-success-bg);
   }
   
   .snackbar.error {
-    background-color: #FF4B4B;
-    color: #FFFFFF;
+    background-color: var(--snackbar-error-bg);
   }

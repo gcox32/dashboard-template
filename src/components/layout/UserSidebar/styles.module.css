@@ -73,8 +73,8 @@
 .logoutButton {
   width: 100%;
   padding: 0.75rem 1rem;
-  background-color: #FF4B4B;
-  color: white;
+  background-color: var(--snackbar-error-bg);
+  color: var(--snackbar-text);
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -87,5 +87,6 @@
 }
 
 .logoutButton:hover {
-  background-color: #FF3333;
+  background-color: var(--snackbar-error-bg);
+  filter: brightness(90%);
 } 

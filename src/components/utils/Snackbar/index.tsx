@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { createPortal } from 'react-dom';
+import dynamic from 'next/dynamic';
 import './styles.css';
 
 interface SnackbarProps {
@@ -10,13 +10,24 @@ interface SnackbarProps {
   visible: boolean;
 }
 
-export default function Snackbar({ message, type, visible }: SnackbarProps) {
-  if (typeof window === 'undefined') return null; // Guard for SSR
-
-  return createPortal(
+const SnackbarContent = ({ message, type, visible }: SnackbarProps) => {
+  return (
     <div className={`snackbar ${type} ${visible ? "show" : "hide"}`}>
       {message}
-    </div>,
-    document.body
+    </div>
+  );
+};
+
+// Disable SSR for the Portal wrapper
+const SnackbarPortal = dynamic(
+  () => import('./SnackbarPortal'),
+  { ssr: false }
+);
+
+export default function Snackbar(props: SnackbarProps) {
+  return (
+    <SnackbarPortal>
+      <SnackbarContent {...props} />
+    </SnackbarPortal>
   );
 }

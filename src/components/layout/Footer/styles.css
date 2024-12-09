@@ -1,9 +1,8 @@
 footer {
-    background-color: #000;
-    color: #FFFFFF;
-    padding: 1rem 2rem;
-    width: 100%;
-    border-top: 5px solid #F6701B;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    padding: 2rem;
+    margin-top: auto;
 }
 
 .footer-content {
@@ -20,16 +19,16 @@ footer {
 }
 
 .footer-links a {
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    color: var(--nav-text);
+    opacity: 0.8;
+    transition: opacity 0.2s;
     font-size: 1.1rem;
     text-transform: uppercase;
 }
 
 .footer-links a:hover {
-    color: #35AAE0;
     opacity: 1;
+    color: var(--active-accent);
 }
 
 .copyright {
